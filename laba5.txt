@@ -1,0 +1,40 @@
+CREATE TABLE students (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255),
+  group_id INTEGER NOT NULL
+);
+
+CREATE TABLE student_marks (
+  student_id INTEGER PRIMARY KEY,
+  math_mark_average FLOAT,
+  physics_mark_average FLOAT,
+  python_mark_average FLOAT
+);
+
+CREATE TABLE groups (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255)
+);
+
+INSERT INTO groups (id, name, description) VALUES
+(1, 'Группа A', 'Описание для Группы A'),
+(2, 'Группа B', 'Описание для Группы B');
+
+INSERT INTO students (id, name, group_id) VALUES
+(1, 'Студент 1', 1),
+(2, 'Студент 2', 2),
+(3, 'Студент 3', 2),
+(4, 'Студент 4', 1);
+
+INSERT INTO student_marks (student_id, math_mark_average, physics_mark_average, python_mark_average) VALUES
+(1, 90.5, 81.0, 93.5),
+(2, 82.0, 75.5, 90.5),
+(3, 79.5, 86.0, 96.0),
+(4, 79.0, 84.5, 99.0);
+
+SELECT * FROM students WHERE group_id = 2; - выбор студента из группы
+
+SELECT * FROM student_marks WHERE math_mark_average > 80.0; - выбор студентов со средней оценкой больше заданного числа
+
+SELECT * FROM groups WHERE name = 'Группа B'; - выбор группы
