@@ -1,3 +1,7 @@
 fastapi
 uvicorn
 pydantic-settings
+pytest
+httpx
+pydantic-settings
+pydantic
