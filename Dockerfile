@@ -1,9 +1,9 @@
 FROM python:3.11
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
 WORKDIR /app
+
+RUN pip install fastapi uvicorn pydantic-settings
+
 COPY src ./src
 
-ENTRYPOINT [ "python", "-m", "src.main" ]
+ENTRYPOINT ["python", "-m", "src.main"]
